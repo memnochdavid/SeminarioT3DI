@@ -7,4 +7,177 @@
     android:layout_height="match_parent"
     tools:context=".Ej01Activity">
 
+    <LinearLayout
+        android:id="@+id/uno"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="#FFEB3B"
+        app:layout_constraintHorizontal_weight="1.2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/dos"
+        app:layout_constraintBottom_toTopOf="@id/tres"
+        app:layout_constraintVertical_weight="1.2"/>
+
+    <LinearLayout
+        android:id="@+id/dos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="#3F51B5"
+        android:padding="5dp"
+        app:layout_constraintHorizontal_weight="0.25"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/uno"
+        app:layout_constraintBottom_toTopOf="@id/tres"
+        app:layout_constraintVertical_weight="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/caca"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/tres"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="#03A9F4"
+        app:layout_constraintTop_toBottomOf="@id/uno"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cuatro"
+        app:layout_constraintVertical_weight="3"
+        android:padding="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cuatro"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="#FF9800"
+        app:layout_constraintTop_toBottomOf="@id/tres"
+        app:layout_constraintBottom_toTopOf="@id/cinco"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_weight="3"
+        android:padding="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cinco"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/seis"
+        app:layout_constraintTop_toBottomOf="@id/cuatro"
+        app:layout_constraintBottom_toTopOf="@id/siete"
+        android:orientation="horizontal"
+        android:background="#4CAF50"
+        android:padding="20dp"
+        app:layout_constraintVertical_weight="5">
+
+        <TextView
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac libero sit amet elit faucibus rhoncus at sed elit. Ut."
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@color/white"
+            android:justificationMode="inter_word"
+            android:paddingHorizontal="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/seis"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/cuatro"
+        app:layout_constraintStart_toEndOf="@id/cinco"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#2F6630"
+        android:padding="50dp"
+        app:layout_constraintBottom_toTopOf="@id/siete"
+        android:orientation="horizontal"
+        app:layout_constraintVertical_weight="5">
+        <TextView
+            android:text="Lorem ipsum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@color/white"
+            android:justificationMode="inter_word"
+            android:paddingHorizontal="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/siete"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintVertical_weight="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#009688"
+        app:layout_constraintTop_toBottomOf="@id/seis"
+        app:layout_constraintBottom_toTopOf="@+id/ocho"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ocho"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:text="boton1"
+        android:background="#CDDC39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/nueve"
+        app:layout_constraintTop_toBottomOf="@id/siete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_weight="1"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nueve"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:text="boton2"
+        android:background="#F44336"
+        app:layout_constraintStart_toEndOf="@id/ocho"
+        app:layout_constraintEnd_toStartOf="@id/diez"
+        app:layout_constraintTop_toBottomOf="@id/siete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_weight="1"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/diez"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:text="boton3"
+        android:textColor="@color/white"
+        android:background="#9C27B0"
+        app:layout_constraintTop_toBottomOf="@id/siete"
+        app:layout_constraintStart_toEndOf="@id/nueve"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_weight="1"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
