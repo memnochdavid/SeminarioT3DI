@@ -28,7 +28,7 @@
             <TextView
                 android:id="@+id/titulo"
                 android:textColor="@color/white"
-                android:text="Ejercicio 02"
+                android:text="Ejercicio 03"
                 android:textSize="20sp"
                 android:textAlignment="textStart"
                 android:layout_width="match_parent"
