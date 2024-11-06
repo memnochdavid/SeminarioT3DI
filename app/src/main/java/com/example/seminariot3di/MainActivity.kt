@@ -20,20 +20,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         var boton1=findViewById<AppCompatButton>(R.id.button_ej01)
-        var boton2=findViewById<AppCompatButton>(R.id.button_ej02)
         var boton3=findViewById<AppCompatButton>(R.id.button_ej03)
+        var boton4=findViewById<AppCompatButton>(R.id.button_ej04)
 
         boton1.setOnClickListener {
             val intent= Intent(this@MainActivity,Ej01Activity::class.java)
             startActivity(intent)
         }
-        /*
-        boton2.setOnClickListener {
-            val intent= Intent(this@MainActivity,Ej02Activity::class.java)
-            startActivity(intent)
-        }
 
         boton3.setOnClickListener {
+            val intent= Intent(this@MainActivity,Ej03Activity::class.java)
+            startActivity(intent)
+        }
+/*
+        boton4.setOnClickListener {
             val intent= Intent(this@MainActivity,Ej03Activity::class.java)
             startActivity(intent)
         }*/
