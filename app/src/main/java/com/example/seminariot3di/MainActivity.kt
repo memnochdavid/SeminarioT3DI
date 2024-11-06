@@ -32,11 +32,10 @@ class MainActivity : AppCompatActivity() {
             val intent= Intent(this@MainActivity,Ej03Activity::class.java)
             startActivity(intent)
         }
-/*
         boton4.setOnClickListener {
-            val intent= Intent(this@MainActivity,Ej03Activity::class.java)
+            val intent= Intent(this@MainActivity,Ej04Activity::class.java)
             startActivity(intent)
-        }*/
+        }
 
     }
 }
