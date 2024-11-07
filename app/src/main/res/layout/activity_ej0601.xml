@@ -12,17 +12,26 @@
     <LinearLayout
         android:id="@+id/uno"
         app:layout_constraintVertical_weight="1"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/dos">
 
         <TextView
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="TRES EN RAYA"/>
+        <TextView
+            android:id="@+id/victoria"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text=""/>
     </LinearLayout>
 
     <LinearLayout
