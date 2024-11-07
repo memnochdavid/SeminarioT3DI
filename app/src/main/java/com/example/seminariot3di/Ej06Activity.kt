@@ -28,19 +28,22 @@ class Ej06Activity : AppCompatActivity() {
             val intent= Intent(this@Ej06Activity,Ej06_01Activity::class.java)
             startActivity(intent)
         }
-/*
+
         boton06_02.setOnClickListener {
-            val intent= Intent(this@Ej06Activity,Ej03Activity::class.java)
+            val intent= Intent(this@Ej06Activity,Ej06_02Activity::class.java)
             startActivity(intent)
         }
+
+
         boton06_03.setOnClickListener {
-            val intent= Intent(this@Ej06Activity,Ej04Activity::class.java)
+            val intent= Intent(this@Ej06Activity,Ej06_03Activity::class.java)
             startActivity(intent)
         }
+
         boton06_04.setOnClickListener {
-            val intent= Intent(this@Ej06Activity,Ej05Activity::class.java)
+            val intent= Intent(this@Ej06Activity,Ej06_04Activity::class.java)
             startActivity(intent)
-        }*/
+        }
 
     }
 }

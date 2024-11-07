@@ -13,6 +13,24 @@
         android:theme="@style/Theme.SeminarioT3DI"
         tools:targetApi="31">
         <activity
+            android:name=".Ej06_04Activity2"
+            android:exported="false" />
+        <activity
+            android:name=".Ej06_04Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Ej06_03Activity2"
+            android:exported="false" />
+        <activity
+            android:name=".Ej06_03Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Ej06_02Activity2"
+            android:exported="false" />
+        <activity
+            android:name=".Ej06_02Activity"
+            android:exported="false" />
+        <activity
             android:name=".Ej06_01Activity"
             android:exported="false" />
         <activity
