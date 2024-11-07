@@ -45,6 +45,9 @@ class Ej06_01Activity : AppCompatActivity() {
                 casillaImagen.setOnClickListener {
                     casillaImagen.setImageResource(R.drawable.circulo)
                     tableroBool[i][j] = true
+
+                    //turno CPU
+
                 }
                 index++
             }
@@ -53,6 +56,4 @@ class Ej06_01Activity : AppCompatActivity() {
 
 
     }
-
-
 }
