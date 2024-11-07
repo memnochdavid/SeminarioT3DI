@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="boton1">#0FA0D7</color>
+    <color name="boton2">#D8D8D5</color>
+    <color name="verde_raro">#1E9C87</color>
+    <color name="lila">#6100EB</color>
 </resources>

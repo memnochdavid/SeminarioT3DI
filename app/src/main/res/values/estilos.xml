@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SearchViewBorde" parent="Widget.AppCompat.Light.SearchView">
+        <item name="android:background">@drawable/borde01</item>
+    </style>
+
+</resources>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ej06_01Activity">
+
+
+
+    <LinearLayout
+        android:id="@+id/uno"
+        app:layout_constraintVertical_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/dos">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="TRES EN RAYA"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dos"
+        app:layout_constraintVertical_weight="2"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/uno"
+        app:layout_constraintBottom_toTopOf="@id/tres">
+
+
+        <LinearLayout
+            android:id="@+id/col0"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/cero_cero"
+                android:layout_weight="1"
+                android:src="@drawable/caca"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"/>
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/uno_cero"
+                android:layout_weight="1"
+                android:src="@drawable/caca"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"/>
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/dos_cero"
+                android:layout_weight="1"
+                android:src="@drawable/caca"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/col1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/cero_uno"
+                android:layout_weight="1"
+                android:src="@drawable/caca"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"/>
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/uno_uno"
+                android:layout_weight="1"
+                android:src="@drawable/caca"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"/>
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/dos_uno"
+                android:layout_weight="1"
+                android:src="@drawable/caca"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/col2"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/cero_dos"
+                android:layout_weight="1"
+                android:src="@drawable/caca"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"/>
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/uno_dos"
+                android:layout_weight="1"
+                android:src="@drawable/caca"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"/>
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/dos_dos"
+                android:layout_weight="1"
+                android:src="@drawable/caca"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tres"
+        app:layout_constraintVertical_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/dos"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/restart"
+            android:backgroundTint="@color/boton1"
+            android:text="Reiniciar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
