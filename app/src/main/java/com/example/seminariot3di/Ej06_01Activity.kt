@@ -119,7 +119,7 @@ class Ej06_01Activity : AppCompatActivity() {
         }
         //comprueba diagonal
         //diag 1
-        if(checkTablero[1]==checkTablero[4] && checkTablero[4]==checkTablero[8] && checkTablero[1]==true){
+        if(checkTablero[0]==checkTablero[4] && checkTablero[4]==checkTablero[8] && checkTablero[0]==true){
             victoria=true
         }
         //diag 2
