@@ -105,7 +105,7 @@
                     android:layout_height="match_parent"/>
                 <TextView
                     android:layout_weight="1"
-                    android:background="#3E7EA7"
+                    android:background="@drawable/borde03"
                     android:padding="15dp"
                     android:textColor="@color/white"
                     android:text="Pepito, no toques"
@@ -168,7 +168,7 @@
                     android:layout_height="match_parent"/>
                 <TextView
                     android:layout_weight="1"
-                    android:background="#60A2A4"
+                    android:background="@drawable/borde02"
                     android:padding="15dp"
                     android:textColor="@color/white"
                     android:text="Ahora, tu oro me pertenece"
@@ -230,7 +230,7 @@
                     android:layout_height="match_parent"/>
                 <TextView
                     android:layout_weight="1"
-                    android:background="#60A2A4"
+                    android:background="@drawable/borde02"
                     android:padding="15dp"
                     android:textColor="@color/white"
                     android:text="ola k ase?\n\n\n\npara ganar dinero contactame wey\n\n\n\n\n\nabe@harvenstein.com"

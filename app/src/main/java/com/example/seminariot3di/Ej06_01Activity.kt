@@ -17,156 +17,115 @@ import kotlin.random.nextInt
 
 class Ej06_01Activity : AppCompatActivity() {
     private lateinit var binding: ActivityEj0601Binding
-    private var n_turno=0//turno del juego
-    private lateinit var reset: AppCompatButton
-    private lateinit var victoria: TextView
+    private var n_turno = 0 //turno del juego
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityEj0601Binding.inflate(layoutInflater)
+        setContentView(binding.root) // Set content view using binding.root
         enableEdgeToEdge()
-        setContentView(R.layout.activity_ej0601)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets -> // Use binding.root
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
         //botón reiniciar
-        reset=findViewById(R.id.restart)
-        reset.setOnClickListener {
+        binding.restart.setOnClickListener {
             recreate()
         }
-        //lógica del tablero
-        var tableroBool = arrayOf(
-            arrayOf(false, false, false),
-            arrayOf(false, false, false),
-            arrayOf(false, false, false)
+
+        var tablero = MutableList(9) { false }
+        var checkTableroPlayer = MutableList(9) { false }
+        var checkTableroCPU = MutableList(9) { false }
+
+        var tableroIMG = listOf(
+            binding.ceroCero, binding.unoCero, binding.dosCero,
+            binding.ceroUno, binding.unoUno, binding.dosUno,
+            binding.ceroDos, binding.unoDos, binding.dosDos
         )
-        //inicialización de la vista
-        binding= ActivityEj0601Binding.inflate(layoutInflater)
-        //mensaje de victoria
-        victoria=findViewById(R.id.victoria)
-        val tableroIMG = listOf(
-            R.id.cero_cero,R.id.cero_uno,R.id.cero_dos,
-            R.id.uno_cero,R.id.uno_uno,R.id.uno_dos,
-            R.id.dos_cero,R.id.dos_uno,R.id.dos_dos
-        )
+        var fin_juego=false
+        //comienza el juego
 
-
-        //partida
-        var index = 0
-        for (i in 0..2) {
-            for (j in 0..2) {
-                val casilla = tableroIMG[index]
-                val casillaImagen = findViewById<AppCompatImageButton>(casilla)
-                casillaImagen.setOnClickListener {
-
-                    casillaImagen.setImageResource(R.drawable.circulo)
-                    tableroBool[i][j] = true
-                    if(victoria(binding)){
-                        victoria.visibility=VISIBLE
-                        victoria.text="¡HAS GANADOOO!"
+        //turno jugador
+        tableroIMG.forEachIndexed { index, boton ->
+            boton.setOnClickListener {
+                if (n_turno % 2 == 0 && !checkTableroPlayer[index] && !checkTableroCPU[index] && !fin_juego) {
+                    boton.setImageResource(R.drawable.circulo)
+                    tablero[index] = true
+                    checkTableroPlayer[index] = true
+                    if (victoria(checkTableroPlayer)) {
+                        binding.victoria.text = "Victoria jugador"
+                        binding.victoria.visibility = VISIBLE
+                        fin_juego=true
                     }
                     n_turno++
-
-                    //turno CPU
-                    if (n_turno % 2 == 1) {//se asegura que el turno sea de la CPU
-                        //se actualiza el tablero con la jugada de la CPU
-                        tableroBool=turnoCPU(tableroBool,tableroIMG, binding)
-                        n_turno++
-                    }
                 }
-                index++
+                //turno CPU
+                if (n_turno < 9 && n_turno % 2 != 0 && !fin_juego) {
+                    fin_juego=turnoCPU(tableroIMG,tablero,checkTableroCPU)
+                }
             }
         }
-
-        //falta implementar el ganador
-
-
-
-
-
-
 
 
 
     }
-    //acciones de la CPU - recibe el tablero y devuelve el tablero actualizado
-    //sólo busca posiciones en tableroBool que sean false y las cambia a true
-    //y actualiza la imagen del tableroIMG correspondiente
-    fun turnoCPU(tableroBool: Array<Array<Boolean>>,tableroIMG:List<Int>, binding:ActivityEj0601Binding): Array<Array<Boolean>>{
-        var tableroBool2=tableroBool
-        var casillasLibres= mutableListOf<Int>()
-        for (i in 0..2) {
-            for (j in 0..2) {
-                if(tableroBool[i][j]==false){
-                    casillasLibres.add(i*3+j)
-                }
+    fun turnoCPU(tableroIMG: List<AppCompatImageButton>, tablero: MutableList<Boolean>, checkTableroCPU: MutableList<Boolean>):Boolean{
+        val availableMoves = tableroIMG.indices.filter { !tablero[it] }
+        var victoria=false
+        if (availableMoves.isNotEmpty()) {
+            val randomIndex = availableMoves.random()
+            tableroIMG[randomIndex].setImageResource(R.drawable.x)
+            tablero[randomIndex] = true
+            checkTableroCPU[randomIndex] = true
+            if (victoria(checkTableroCPU)) {
+                binding.victoria.text = "Victoria CPU"
+                binding.victoria.visibility = VISIBLE
+                victoria=true
             }
+            n_turno++
         }
-        var casillaCPU=casillasLibres.random()
-        var i=casillaCPU/3
-        var j=casillaCPU%3
-        tableroBool2[i][j]=true
-        val casillaImagen = findViewById<AppCompatImageButton>(tableroIMG[casillaCPU])
-        casillaImagen.setImageResource(R.drawable.x)
-        if(victoria(binding)){
-            victoria.visibility=VISIBLE
-            victoria.text="¡HAS PERDIDO!"
-        }
-        return tableroBool2
+        return victoria
     }
 
-    fun victoria(binding:ActivityEj0601Binding):Boolean{
-
-        var imagenes:MutableList<Drawable> = mutableListOf()
-        imagenes.add(binding.ceroCero.getDrawable())
-        imagenes.add(binding.ceroUno.getDrawable())
-        imagenes.add(binding.ceroDos.getDrawable())
-        imagenes.add(binding.unoCero.getDrawable())
-        imagenes.add(binding.unoUno.getDrawable())
-        imagenes.add(binding.unoDos.getDrawable())
-        imagenes.add(binding.dosCero.getDrawable())
-        imagenes.add(binding.dosUno.getDrawable())
-        imagenes.add(binding.dosDos.getDrawable())
-
+    fun victoria(checkTablero: MutableList<Boolean>):Boolean{
         //comprueba horizontal
         var victoria=false
         //comprueba horizontales
         //fila cero
-        if(imagenes[0]==imagenes[1] && imagenes[1]==imagenes[2]){
+        if(checkTablero[0]==checkTablero[1] && checkTablero[1]==checkTablero[2] && checkTablero[0]==true){
             victoria=true
         }
         //fila uno
-        if(imagenes[3]==imagenes[4] && imagenes[4]==imagenes[5]){
+        if(checkTablero[3]==checkTablero[4] && checkTablero[4]==checkTablero[5] && checkTablero[3]==true){
             victoria=true
         }
         //fila dos
-        if(imagenes[6]==imagenes[7] && imagenes[7]==imagenes[8]){
+        if(checkTablero[6]==checkTablero[7] && checkTablero[7]==checkTablero[8] && checkTablero[6]==true){
             victoria=true
         }
         //comprueba vertical
         //col 0
-        if(imagenes[0]==imagenes[3] && imagenes[3]==imagenes[6]){
+        if(checkTablero[0]==checkTablero[3] && checkTablero[3]==checkTablero[6] && checkTablero[0]==true){
             victoria=true
         }
         //col1
-        if(imagenes[1]==imagenes[4] && imagenes[4]==imagenes[7]){
+        if(checkTablero[1]==checkTablero[4] && checkTablero[4]==checkTablero[7] && checkTablero[1]==true){
             victoria=true
         }
         //col2
-        if(imagenes[2]==imagenes[5] && imagenes[5]==imagenes[8]){
+        if(checkTablero[2]==checkTablero[5] && checkTablero[5]==checkTablero[8] && checkTablero[2]==true){
             victoria=true
         }
         //comprueba diagonal
         //diag 1
-        if(imagenes[1]==imagenes[4] && imagenes[4]==imagenes[8]){
+        if(checkTablero[1]==checkTablero[4] && checkTablero[4]==checkTablero[8] && checkTablero[1]==true){
             victoria=true
         }
         //diag 2
-        if(imagenes[6]==imagenes[4] && imagenes[4]==imagenes[2]){
+        if(checkTablero[6]==checkTablero[4] && checkTablero[4]==checkTablero[2] && checkTablero[6]==true){
             victoria=true
         }
-
         return victoria
     }
 
